@@ -1,0 +1,51 @@
+type Query {
+    getAccounts: [Account]
+
+}
+
+enum AccountType{
+    PAYMENT,
+    ASP_SAVING,
+    ARC_SAVING
+}
+
+enum Status{
+    INACTIVE,
+    ACTIVE,
+    LOGICALLY_ENDED
+}
+
+
+type Account {
+    # The iban number of the account
+    iban: String
+    # The Currency of the account
+    currency: String
+    # the number of decimals of the currency of the account
+    numberOfDecimals: Int
+    # The type of the account
+    accountType: AccountType
+    # The accountId of the account, a hash based on AuthenticatedUserId, iban and currency
+    accountId: String
+    # The name of the product
+    productName: String
+    # The name of the accountholder
+    accountHolderName: String
+    # The custom name of the product
+    customProductName: String
+    # The spending limit
+    spendingLimit: Float
+    # Is the account visible
+    showAccount: Boolean
+    # The startdate of the account
+   # startDate(format: dateFormat = "dd-MM-yyyy"): Date
+    # The enddate of the account
+   # endDate(format: dateFormat = "dd-MM-yyyy"): Date
+    # The balance of the account
+    balance: Float
+    # The balance is not available
+    balanceTemporarilyNotAvailable: Boolean
+    # The status of the account
+    status: Status
+}
+
